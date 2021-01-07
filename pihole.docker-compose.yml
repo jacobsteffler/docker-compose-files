@@ -1,0 +1,23 @@
+version: "3"
+
+# https://github.com/pi-hole/docker-pi-hole/blob/master/README.md
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    hostname: jupiter
+    network_mode: host
+
+    environment:
+      TZ: 'America/Chicago'
+      ServerIP: '10.0.0.5'
+      # WEBPASSWORD: 'set a secure password here or it will be random'
+
+    # Volumes store your data between container upgrades
+    volumes:
+      - '/etc/pihole.d/etc-pihole/:/etc/pihole/'
+      - '/etc/pihole.d/etc-dnsmasq.d:/etc/dnsmasq.d/'
+      - '/etc/pihole.d/pihole.log:/var/log/pihole.log'
+
+    restart: unless-stopped

@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  unifi:
+    container_name: unifi
+    image: jacobalberty/unifi:latest
+    hostname: jupiter
+    network_mode: host
+    init: true
+
+    # make sure volumes are owned by 999:999
+    user: unifi
+
+    environment:
+      TZ: 'America/Chicago'
+
+    volumes:
+      - '/etc/unifi.d/unifi/:/unifi/'
+      - '/etc/unifi.d/var-run-unifi/:/var/run/unifi/'
+
+    restart: unless-stopped

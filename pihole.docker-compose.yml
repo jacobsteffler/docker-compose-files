@@ -8,6 +8,9 @@ services:
     image: pihole/pihole:latest
     hostname: jupiter
     network_mode: host
+    
+    dns:
+      - '8.8.8.8'
 
     environment:
       TZ: 'America/Chicago'

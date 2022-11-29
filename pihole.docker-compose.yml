@@ -18,6 +18,7 @@ services:
     volumes:
       - '/etc/pihole.d/etc-pihole/:/etc/pihole/'
       - '/etc/pihole.d/etc-dnsmasq.d:/etc/dnsmasq.d/'
-      - '/etc/pihole.d/pihole.log:/var/log/pihole.log'
+      - '/etc/pihole.d/pihole.log:/var/log/pihole/pihole.log'
+      - '/etc/pihole.d/FTL.log:/var/log/pihole/FTL.log'
 
     restart: unless-stopped

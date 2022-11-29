@@ -10,6 +10,7 @@ services:
     network_mode: host
 
     environment:
+      INTERFACE: 'end0'
       TZ: 'America/Chicago'
       ServerIP: '10.0.0.5'
       # WEBPASSWORD: 'set a secure password here or it will be random'
